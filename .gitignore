@@ -4,3 +4,4 @@
 !.config/yed/init.c
 !.config/yed/yedrc
 !.config/yed/ypm_list
+!.config/yed/build_init.sh
