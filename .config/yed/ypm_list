@@ -46,3 +46,4 @@ jump_stack
 lang/syntax/bpftrace
 word_wrap
 flame_graph
+go_menu
