@@ -23,9 +23,14 @@ int yed_plugin_boot(yed_plugin *self) {
     yed_plugin_set_command(self, "recompile-init", recompile_init);
 
     YEXE("plugin-load", "yedrc");
+    
+    if (file_exists_in_PATH("rg")) {
+      yed_log("init.c: found an rg executable");
+      YEXE("set", "grep-prg",      "rg --vimgrep '%' | sort");
+      YEXE("set", "find-file-prg", "rg --files | rg '(^[^/]*%)|(/[^/]*%[^/]*$)' | sort");
+    }
 
     path = get_config_item_path("yedrc");
-
     YEXE("yedrc-load", path);
 
     free(path);
